@@ -11,6 +11,7 @@ border-radius: 5px;
 transition: all 0.3s ease-in-out;
 font-size: 1.5rem;
 z-index: 50;
+font-size: 1rem;
 &:hover{
   background: ${({primary})=>primary ? '#fff' : '#000' };
   color: ${({primary})=>primary ? '#000' : '#fff'};

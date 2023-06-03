@@ -15,7 +15,7 @@ const Modal = () => {
 
   return (
     <Container>
-        {show ?  null: <Button onClick={showModal} primary={true} padding={"2rem 4rem" }>I'm modal
+        {show ?  null: <Button onClick={showModal} primary={true} padding={"0.5rem 1rem" }>I'm modal
         </Button> }
       
     
@@ -24,11 +24,12 @@ const Modal = () => {
              <ModalBG></ModalBG>   
               <ModalModal> 
                     <LeftColumn>
-                        <img src="" alt="" />
+                        <img src='photo.jpg' alt="" />
                     </LeftColumn>
                     <RightColumn>
                         <h2>are ready ? </h2>
                         <p>get exclusive access to our next launch</p>
+                        <Button primary={true} margin={"0.5rem auto"} padding={"0.3rem 1rem"}>Join Now</Button>
                     </RightColumn>
                     <Close size={25} onClick={handleClose}/>
                  </ModalModal>
