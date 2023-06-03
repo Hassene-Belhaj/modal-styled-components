@@ -1,9 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect, useRef } from 'react'
 import { Button } from '../GlobalStyle/Button.Style'
-import { Close, Container, LeftColumn, ModalBG, ModalContainer, ModalModal, RightColumn } from './Modal.Style'
+import { Close, Container, LeftColumn, ModalContainer, ModalModal, RightColumn } from './Modal.Style'
+import { useSpring,animated } from '@react-spring/web'
 
 const Modal = () => {
     const [show,setShow] = useState(false)
+
+    const Ref = useRef()
+
+  const animation = useSpring({
+    config : {
+    duration : 200,
+    },
+    opacity : show ? 1 : 0  ,
+    transform : show ? `translateY(0%)` : `translateY(-100%)`
+  })  
    
   const showModal = () => {
     setShow(!show)
@@ -14,15 +25,19 @@ const Modal = () => {
   }
 
   return (
-    <Container>
-        {show ?  null: <Button onClick={showModal} primary={true} padding={"0.5rem 1rem" }>I'm modal
-        </Button> }
+    <Container   >
+    {show ?  null
+    : 
+    <Button onClick={showModal} primary={true} padding={"0.5rem 1rem" }>
+      I'm modal
+    </Button> }
+      <animated.div style={animation}>
       
     
     
-     {show ? <ModalContainer>
-             <ModalBG></ModalBG>   
-              <ModalModal> 
+     {show ? 
+     <ModalContainer ref={Ref}>
+              <ModalModal > 
                     <LeftColumn>
                         <img src='photo.jpg' alt="" />
                     </LeftColumn>
@@ -33,9 +48,10 @@ const Modal = () => {
                     </RightColumn>
                     <Close size={25} onClick={handleClose}/>
                  </ModalModal>
-             </ModalContainer>   
-        : null}   
+      </ModalContainer>   
+      : null}   
      
+      </animated.div>
  </Container>
   )
 }

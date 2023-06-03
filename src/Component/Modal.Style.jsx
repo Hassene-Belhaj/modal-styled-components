@@ -12,16 +12,20 @@ align-items: center;
 export const ModalContainer = styled.div`
 width: 100%;
 height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
 `
 
-export const ModalBG = styled.div`
-width: 100%;
-height: 100%;
-position: absolute;
-inset: 0;
-background: rgba(0,0,0,0.9);
-z-index: 50;
-`
+// export const ModalBG = styled.div`
+// width: 100%;
+// height: 100%;
+// position: absolute;
+// inset: 0;
+// background: rgba(0,0,0,0.9);
+// z-index: 50;
+// `
+
 export const ModalModal = styled.div`
 width: 800px;
 height: 600px;
