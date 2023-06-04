@@ -1,4 +1,4 @@
-import {createGlobalStyle} from "styled-components";
+import styled, {createGlobalStyle} from "styled-components";
 
 
 export const GlobalStyle = createGlobalStyle`
@@ -11,7 +11,14 @@ export const GlobalStyle = createGlobalStyle`
 }
 body {
    scroll-behavior: smooth;
-   overflow-x: hidden;
+   overflow: hidden;
 }
 `
 
+export const Container = styled.div`
+width: 100%;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+`
