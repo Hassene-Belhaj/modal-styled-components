@@ -32,8 +32,8 @@ justify-content: center;
 align-items: center;
 box-shadow: 1px 1px 1px #000 ;
 @media screen and (max-width : 768px){
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
 }
 `
 
@@ -65,13 +65,17 @@ align-items: center;
 text-transform: uppercase;
 h2{
     font-size:1.2rem ;
+    margin: 0 auto;
+
 }
 p{
-    width: 90%;
-    font-size: 1.2rem;
-    margin: 1rem auto;
+    width: 100%;
+    font-size: 1rem;
+    margin: 1rem 0;
+    padding: 0 2rem;
     font-weight: 500;
 }
+
 `
 
 
