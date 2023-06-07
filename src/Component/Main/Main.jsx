@@ -15,7 +15,7 @@ const Main = ({show,setShow}) => {
     {show ?  null
         :    
         <Container>
-        <Button onClick={showModal} primary={true} padding={"0.5rem 1rem" }>
+        <Button onClick={showModal} primary={false} padding={"0.5rem 2rem" }>
           add
         </Button> 
         </Container>      
