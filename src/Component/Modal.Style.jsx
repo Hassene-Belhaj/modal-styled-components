@@ -32,8 +32,12 @@ justify-content: center;
 align-items: center;
 box-shadow: 1px 1px 1px #000 ;
 @media screen and (max-width : 768px){
-    width: 400px;
-    height: 400px;
+    width: 600px;
+    height: 600px;
+}
+@media screen and (max-width : 768px){
+    width: 330px;
+    height: 330px;
 }
 `
 
@@ -59,6 +63,7 @@ export const RightColumn = styled.div`
 width: 50%;
 height: 100%;
 display: flex;
+position: relative;
 flex-direction: column;
 justify-content: center;
 align-items: center;
