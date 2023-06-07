@@ -80,9 +80,7 @@ p{
     padding: 0 2rem;
     font-weight: 500;
 }
-
 `
-
 
 export const Close = styled(AiOutlineClose)`
 fill: #000;
