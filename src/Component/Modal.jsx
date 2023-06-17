@@ -1,8 +1,9 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Button } from '../GlobalStyle/Button.Style'
 import { BGLeftColumn, Close, Container, LeftColumn, ModalContainer, ModalDiv,RightColumn } from './Modal.Style'
 // import { useSpring,animated } from '@react-spring/web'
 import { motion } from 'framer-motion'
+import { useCallback } from 'react'
 
 
 
@@ -11,6 +12,23 @@ import { motion } from 'framer-motion'
 
 
 const Modal = ({show,setShow}) => {
+
+  const KeyPress = useCallback((e) => {
+    if (e.key === 'Escape' && show) {
+      setShow(false)
+    }
+  }, [show,setShow]);
+
+useEffect(()=>{
+window.addEventListener('keydown', KeyPress) ;
+return () => {
+  window.removeEventListener('keydown' , KeyPress)
+}
+
+
+},[KeyPress])
+
+
 
     // const Ref = useRef()
     // const animation = useSpring({
@@ -23,19 +41,28 @@ const Modal = ({show,setShow}) => {
   return (
 <Container>
      {show ? 
-  <ModalContainer >
+  <ModalContainer onClick={()=>setShow(false)}>
     <motion.div 
-       initial={{
-        y : "-100vh"
-       }}
-       animate={{
-          y : 0 ,
-          transition : {
-          type: "spring" ,
-          bounce : 0.2 ,
-          duration : 1 ,
-         }
-       }}
+        variants={{
+         hidden : {opacity : 0 , y : "-100vh"} ,
+         visible : {opacity : 1 , y : 0} ,
+        }}
+        initial='hidden'
+        animate='visible'
+        transition={{
+           duration : 1 ,
+           type : 'spring' ,
+           bounce : 0.3
+        }}
+        exit='exit'
+
+      //  initial={{y : "-100vh" }}
+      //  animate={{ y : 0}}
+      //    transition={{
+      //     type: "spring" ,
+      //     bounce : 0.2 ,
+      //     duration : 1 ,
+      //    }}
        >
        {/* <animated.div style={animation}> */}
               <ModalDiv  > 
